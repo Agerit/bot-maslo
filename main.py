@@ -18,7 +18,7 @@ async def loadAll():
     for fn in os.listdir("./cogs"):
         if fn.endswith(".py"):
             client.load_extension(f"cogs.{fn[:-3]}")
-            print(f"{fn[:-3]} extension loaded")
+            print(f"{fn[:-3]} loaded")
 
 @client.command()
 async def load(ctx, extension):
