@@ -30,12 +30,12 @@ class Coin(commands.Cog):
                         print(member.name + " added to db")
         db.commit()
 
-    @nextcord.slash_command(name="give_coins")
-    async def give_coins(self, interaction: Interaction):
-        if interaction.user.id == cfg.owner_id:
-            await interaction.response.send_message("Successfully", ephemeral=True)
-        else:
-            await interaction.response.send_message("You dont't have permisions to use it", ephemeral=True)
+    # @nextcord.slash_command(name="give_coins")
+    # async def give_coins(self, interaction: Interaction):
+    #     if interaction.user.id == cfg.owner_id:
+    #         await interaction.response.send_message("Successfully", ephemeral=True)
+    #     else:
+    #         await interaction.response.send_message("You dont't have permisions to use it", ephemeral=True)
 
         
 

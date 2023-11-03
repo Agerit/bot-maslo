@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 TOKEN = os.getenv("TOKEN")
 intents = nextcord.Intents.all()
-client = commands.Bot(intents=intents, command_prefix="!")
+client = commands.Bot(intents=intents, command_prefix="m!")
 
 
 
@@ -22,18 +22,27 @@ async def loadAll():
 
 @client.command()
 async def load(ctx, extension):
-    client.load_extension(f"cogs.{extension}")
-    await ctx.send(f"Loaded {extension} successfully")
+    if ctx.author.id == cfg.owner_id:
+        client.load_extension(f"cogs.{extension}")
+        print((f"Loaded [{extension}] successfully"))
+    else:
+        print(f'someone tried to unload {extension}')
 
 @client.command()
 async def unload(ctx, extension):
-    client.unload_extensionload_extension(f"cogs.{extension}")
-    await ctx.send(f"Unloaded {extension} successfully")
+    if ctx.author.id == cfg.owner_id:
+        client.unload_extensionload_extension(f"cogs.{extension}")
+        print((f"Unloaded [{extension}] successfully"))
+    else:
+        print(f'someone tried to unload {extension}')
 
 @client.command()
 async def reload(ctx, extension):
-    client.reload_extension(f"cogs.{extension}")
-    await ctx.send(f"Reloaded [{extension}] successfully")
+    if ctx.author.id == cfg.owner_id:
+        client.reload_extension(f"cogs.{extension}")
+        print((f"Reloaded [{extension}] successfully"))
+    else:
+        print(f'someone tried to reload {extension}')
 
 
 async def main():
